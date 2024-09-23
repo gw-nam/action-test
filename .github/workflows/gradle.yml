@@ -24,6 +24,12 @@ jobs:
       run: ./gradlew test
     - name: Build with Gradle Wrapper
       run: ./gradlew build
+  
+  upload:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
     - name: Download a Build Artifact      
       uses: actions/download-artifact@v4.1.8
       with:
