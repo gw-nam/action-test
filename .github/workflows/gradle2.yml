@@ -22,11 +22,17 @@ jobs:
       run: ./gradlew test
     - name: Build with Gradle Wrapper
       run: ./gradlew build
+      
+    - name: Sha256 digest
+      run: sha256sum ./build/libs/*.jar > digest.sha256
+
     - name: Upload Build Artifact
       uses: actions/upload-artifact@v4
       with:
         name: build-${{ github.sha }}
-        path: ./build/libs/*.jar
+        path: 
+          ./build/libs/*.jar
+          digest.sha256
 
   # download:
   #   runs-on: ubuntu-latest
