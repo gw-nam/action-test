@@ -22,6 +22,28 @@ Pull requests are the best way to propose changes to the codebase (we use [Githu
 8. If there is any feedback, please update the PR to reflect the suggestions.
 9. After the review is completed, the PR will be merged.
 
+## Code Review Standards
+We conduct code reviews based on the following standards to ensure that your contribution maintains consistency with the project and upholds quality:
+
+1. Code Quality
+  - Write code that is easy to read and maintain. Avoid overly complex logic, and if possible, suggest better solutions.
+  - Minimize duplicated code and check if the code can be refactored into reusable modules.
+
+2. Feature Verification
+  - Test the new feature or bug fix to ensure it works as intended.
+  - All tests must pass before submitting the PR. Include any additional necessary tests in the PR.
+
+3. Code Style Compliance
+  - Ensure that your code follows the project's code style. Feedback will be given if there are formatting issues or violations of naming conventions.
+
+4. Meaningful Commit Messages
+  - Ensure that commit messages clearly describe the changes made.
+  - Avoid including too many modifications in a single commit. If possible, divide changes into smaller commits.
+
+5. Documentation
+  - If new features, APIs, or configuration changes are introduced, make sure to update or add relevant documentation.
+  - Write appropriate comments in the code, especially for explaining complex logic.
+
 ## Report bugs using Github's [issues](issues)
 We use GitHub issues to track public bugs. Report a bug by [opening a new issue](); it's that easy!
 
