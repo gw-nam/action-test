@@ -1,20 +1,50 @@
 ---
 name: Feature request
 about: Suggest an idea for this project
-title: ''
-labels: ''
+title: "[Feature]: "
+labels: ["feature"]
 assignees: ''
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this feature request!
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+  - type: textarea
+    id: feature
+    attributes:
+      label: Feature Description
+      description: Please provide a detailed description of the feature.
+      placeholder: Describe the feature you are requesting.
+    validations:
+      required: true
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+  - type: textarea
+    id: purpose
+    attributes:
+      label: Purpose
+      description: What is the main purpose of this feature? Why is it needed?
+      placeholder: Explain the purpose of the feature.
+    validations:
+      required: true
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+  - type: textarea
+    id: background
+    attributes:
+      label: Background
+      description: Provide any relevant context or background information for this feature.
+      placeholder: Provide background information.
+    validations:
+      required: false
+
+  - type: textarea
+    id: expected_outcome
+    attributes:
+      label: Expected Outcome
+      description: What are the expected results of implementing this feature?
+      placeholder: Explain the expected results or impact.
+    validations:
+      required: true
