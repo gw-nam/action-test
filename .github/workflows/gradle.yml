@@ -19,14 +19,14 @@ jobs:
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582
     - name: Test with Gradle
-      run: ./surce/test-server/gradlew test
+      run: ./source/test-server/gradlew test
     - name: Build with Gradle Wrapper
-      run: ./surce/test-server/gradlew build
+      run: ./source/test-server/gradlew build
     - name: Upload Build Artifact
       uses: actions/upload-artifact@v4
       with:
         name: build-artifact
-        path: ./surce/test-server/build/libs/*.jar
+        path: ./source/test-server/build/libs/*.jar
 
   # download:
   #   runs-on: ubuntu-latest

@@ -19,19 +19,19 @@ jobs:
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582
     - name: Test with Gradle
-      run: ./gradlew test
+      run: ./source/test-server/gradlew test
     - name: Build with Gradle Wrapper
-      run: ./gradlew build
+      run: ./source/test-server/gradlew build
       
     - name: Sha256 digest
-      run: sha256sum ./build/libs/*.jar > digest.sha256
+      run: sha256sum ./surce/test-server/build/libs/*.jar > digest.sha256
 
     - name: Upload Build Artifact
       uses: actions/upload-artifact@v4
       with:
         name: build-${{ github.sha }}
         path: |
-          ./build/libs/*.jar
+          ./surce/test-server/build/libs/*.jar
           digest.sha256
 
   # download:
