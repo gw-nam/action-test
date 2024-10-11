@@ -35,8 +35,8 @@ jobs:
       with:
         name: build-${{ github.sha }}
         path: |
-          ./build/libs/*.jar
-          digest.sha256
+          source/test-source/build/libs/*.jar
+          source/test-source/digest.sha256
 
   # download:
   #   runs-on: ubuntu-latest
