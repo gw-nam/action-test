@@ -34,9 +34,10 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: build-${{ github.sha }}
+        working-directory: source/test-server
         path: |
-          source/test-source/build/libs/*.jar
-          source/test-source/digest.sha256
+          ./build/libs/*.jar
+          ./digest.sha256
 
   # download:
   #   runs-on: ubuntu-latest
