@@ -1,13 +1,14 @@
 name: Build and Upload JAR to GitHub Releases
 
 on:
-  push:
+  pull_request:
     branches:
-      - "release/QA-**"
+      - main
+    types: [closed]
 
 jobs:
   build:
-    # if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'release/QA-')
+    if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'release/QA-')
     runs-on: ubuntu-latest
     permissions:
       contents: write
