@@ -10,6 +10,11 @@ jobs:
   build:
     if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'release/QA-')
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      repository-projects: write
+    
     defaults:
       run:
         working-directory: source/test-server
