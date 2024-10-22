@@ -78,6 +78,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ env.jar_path }}
+          asset_path: source/test-server/${{ env.jar_path }}
           asset_name: test-${{ env.release_tag }}.jar
           asset_content_type: application/java-archive
