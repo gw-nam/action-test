@@ -53,6 +53,20 @@ jobs:
           echo "$commits" > commit_messages.txt
           echo "commits=$commits" >> $GITHUB_ENV  # Write to the environment file
 
+      - name: Find JAR file
+        id: find_jar
+        run: |
+          jar_path=$(find ./build/libs -name "*.jar" | head -n 1)
+          echo "JAR path found: $jar_path"
+          echo "jar_path=$jar_path" >> $GITHUB_ENV  # Write to the environment file
+
+      - name: Calculate SHA-256
+        id: calculate_sha
+        run: |
+          sha256=$(sha256sum ${{ env.jar_path }} | awk '{ print $1 }')
+          echo "SHA-256: $sha256"
+          echo "jar_sha256=$sha256" >> $GITHUB_ENV  # Write to the environment file
+
       - name: Create GitHub Release
         id: create_release
         uses: actions/create-release@v1
@@ -64,13 +78,7 @@ jobs:
           body: |
             ## Changes:
             ${{ env.commits }}
-
-      - name: Find JAR file
-        id: find_jar
-        run: |
-          jar_path=$(find ./build/libs -name "*.jar" | head -n 1)
-          echo "JAR path found: $jar_path"
-          echo "jar_path=$jar_path" >> $GITHUB_ENV  # Write to the environment file
+            ## SHA-256: ${{ env.jar_sha256 }}
 
       - name: Upload JAR
         uses: actions/upload-release-asset@v1
